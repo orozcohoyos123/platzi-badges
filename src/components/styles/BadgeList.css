@@ -1,0 +1,39 @@
+.BadgeList__container {
+    margin-bottom: 1em;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    box-shadow: 0px 2px 8px rgb(0 0 0 / 30%);
+}
+
+.BadgeList__container:hover{
+    box-shadow: 0px 2px 8px rgb(0 0 0 / 45%);
+}
+
+.BadgeList__img {
+    border-radius: 100%;
+    height: 90px;
+    width: 90px;
+    object-fit: fill;
+    margin-right: 1em;
+}
+
+.BadgeList__info{
+    display: block;
+}
+
+.BadgeList__info label{
+    margin-bottom: 0;
+}
+
+.BadgeList__twitter img{
+    height: 15px;
+    margin-right: 4px;
+}
+
+.BadgeList__twitter a{
+    color: #1DA1F2
+}
+
