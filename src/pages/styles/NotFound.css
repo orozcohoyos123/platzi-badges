@@ -1,0 +1,35 @@
+.NotFound {
+  width: 100%;
+  padding: 2rem 0;
+  background: url("../../images/stars.svg"), #1b1b25;
+  background-repeat: repeat;
+  min-height: calc(100vh - 60px);
+  color: white;
+  margin: 0;
+}
+
+.NotFound__logoContainer {
+  display: flex;
+}
+
+.NotFound__logo {
+  width: 80%;
+}
+
+.NotFound__title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-right: 4em;
+  justify-content: center;
+}
+
+.NotFound__title h1 {
+  font-size: 150px;
+  color: white;
+  letter-spacing: 11px;
+}
+
+.NotFound__title label {
+  font-size: 25px;
+}

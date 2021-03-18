@@ -1,7 +1,6 @@
 import React from 'react';
 import '../components/styles/BadgeNews.css';
 import header from '../images/badge-header.svg';
-import Navbar from '../components/Navbar';
 import BadgeForm from '../components/BadgeForm';
 import Badge from '../components/Badge';
 
@@ -27,14 +26,15 @@ class BagdeNews extends React.Component {
 
     render(){
         return (
-            <div>
-                <Navbar />
+            <>
                 <div className="BadgeNew__hero">
-                    <img 
-                        className="img-fluid" 
-                        src={header}
-                        alt="Logo"
-                    />
+                    <div className="BadgeNew__logoContainer col-6">
+                        <img 
+                            className="img-fluid" 
+                            src={header}
+                            alt="Logo"
+                        />
+                    </div>
                 </div>
                 <div className="container">
                     <div className="row">
@@ -57,7 +57,7 @@ class BagdeNews extends React.Component {
                     </div>
                 </div>
 
-            </div>
+            </>
         )
     }
 }

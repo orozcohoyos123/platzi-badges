@@ -1,0 +1,27 @@
+.Home__container {
+  width: 100%;
+  padding: 2rem 0;
+  background: url("../../images/stars.svg"), #1b1b25;
+  background-repeat: repeat;
+  min-height: calc(100vh - 60px);
+  color: white;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.Home__detail{
+    display: flex;
+    flex-direction: column;
+}
+
+.Home__detail-logo{
+    margin-bottom: 2em;
+}
+
+.Home__detail-text{
+    font-size: 23px;
+    max-width: 343px;
+}
