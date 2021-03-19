@@ -1,46 +1,44 @@
 import React from "react";
 import "./styles/Badges.css";
+import "./styles/SkeletonBadges.css";
 import confLogo from "../images/badge-header.svg";
 import BadgesList from "../components/BadgesList";
+import Error from "../pages/Error";
 import { Link } from "react-router-dom";
+import Skeleton from "react-loading-skeleton";
+import api from "../api";
 
 class Badges extends React.Component {
   state = {
-    data: [
-      {
-        id: "2de30c42-9deb-40fc-a41f-05e62b5939a7",
-        firstName: "Sebastian",
-        lastName: "Orozco",
-        email: "orozcohoyos123@gmail.com",
-        jobTitle: "Fullstack developer",
-        twitter: "orozcohoyos123",
-        avatarUrl:
-          "https://s.gravatar.com/avatar/e86b8756af9728554dafcd1ca9233fe1?s=80",
-      },
-      {
-        id: "d00d3614-101a-44ca-b6c2-0be075aeed3d",
-        firstName: "Major",
-        lastName: "Rodriguez",
-        email: "Ilene66@hotmail.com",
-        jobTitle: "Human Research Architect",
-        twitter: "ajorRodriguez61545",
-        avatarUrl:
-          "https://www.gravatar.com/avatar/d57a8be8cb9219609905da25d5f3e50a?d=identicon",
-      },
-      {
-        id: "63c03386-33a2-4512-9ac1-354ad7bec5e9",
-        firstName: "Daphney",
-        lastName: "Torphy",
-        email: "Ron61@hotmail.com",
-        jobTitle: "National Markets Officer",
-        twitter: "DaphneyTorphy96105",
-        avatarUrl:
-          "https://www.gravatar.com/avatar/e74e87d40e55b9ff9791c78892e55cb7?d=identicon",
-      },
-    ],
+    loading: true,
+    error: null,
+    data: undefined,
+  };
+
+  componentDidMount() {
+    this.fetchData();
+  }
+
+  fetchData = async () => {
+    this.setState({ loading: true, error: null });
+
+    try {
+      const data = await api.badges.list();
+      this.setState({ loading: false, data: data });
+    } catch (error) {
+      this.setState({ loading: false, error: error });
+    }
   };
 
   render() {
+    if (this.state.error) {
+      return (
+        <div>
+          <Error />
+        </div>
+      );
+    }
+
     return (
       <>
         <div className="Badges">
@@ -52,17 +50,39 @@ class Badges extends React.Component {
         </div>
 
         <div className="Badges__container">
-          <div className="Badges__buttons">
-            <Link to="/badges/new" className="btn btn-primary">
-              New Badge
-            </Link>
-          </div>
-
-          <div className="Badges__list">
-            <div className="Badges__container">
-                <BadgesList badges={this.state.data}/>
-            </div>
-          </div>
+          {this.state.loading ? (
+            <>
+              <div className="Badges__buttons">
+                <span className="btn btn-primary">New Badge</span>
+              </div>
+              <ul>
+                {[1, 1, 1, 1].map((number) => (
+                  <li className="skeleton-item">
+                    <div>
+                      <div className="skeleton-img" />
+                    </div>
+                    <div className="skeleton-info">
+                      <p className="skeleton-name" />
+                      <p className="skeleton-email" />
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </>
+          ) : (
+            <>
+              <div className="Badges__buttons">
+                <Link to="/badges/new" className="btn btn-primary">
+                  New Badge
+                </Link>
+              </div>
+              <div className="Badges__list">
+                <div className="Badges__container">
+                  <BadgesList badges={this.state.data} />
+                </div>
+              </div>
+            </>
+          )}
         </div>
       </>
     );

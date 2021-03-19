@@ -1,0 +1,23 @@
+.Error{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    padding: 2rem 0;
+    background: url("../../images/stars.svg"), #1b1b25;
+    background-repeat: repeat;
+    min-height: calc(100vh - 60px);
+    color: white;
+    margin: 0;
+}
+
+.Error__logo-container{
+    width: 700px;
+    display: flex;
+    justify-content: center;
+}
+
+.Error__logo{
+    width: 80%;
+}

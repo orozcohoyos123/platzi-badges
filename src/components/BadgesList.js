@@ -4,6 +4,14 @@ import twitterLogo from '../images/twitter-logo.png';
 
 class BadgesList extends React.Component {
   render() {
+    if(this.props.badges.length === 0) {
+      return(
+        <div>
+          <h3 className="text-center">No encontramos ningún badge</h3>
+        </div>
+      )
+    }
+    
     return (
       <ul className="list-unstyled">
         {this.props.badges.map((badge) => {

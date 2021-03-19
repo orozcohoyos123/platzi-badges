@@ -9,6 +9,6 @@
 
 .BadgeNew__logoContainer {
   display: flex;
-  justify-content: flex-end;
-  height: 200px;
+  justify-content: center;
+  height: 150px;
 }
