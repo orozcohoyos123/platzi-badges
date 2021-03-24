@@ -11,7 +11,7 @@ function Home(){
                 <img className="Home__detail-logo" src={ConfLogo} alt=""/>
                 <h1>PRINT YOUR BADGES</h1>
                 <label className="Home__detail-text">La forma más fácil de administrar tus conferencias</label>
-                <Link to="/badges/new" className="btn btn-primary">
+                <Link to="/badges" className="btn btn-primary">
                     Empieza ahora
                 </Link>
             </div>
